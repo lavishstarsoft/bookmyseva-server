@@ -1,0 +1,217 @@
+[dotenv@17.2.3] injecting env (13) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+2026-01-31 13:21:44 [[32MINFO[39M]: 🚀 Server running in development mode on port 5001
+2026-01-31 13:21:44 [[32MINFO[39M]: 📡 Health check: http://localhost:5001/health
+2026-01-31 13:21:44 [[32MINFO[39M]: ✅ MongoDB Connected: ac-g41xwer-shard-00-00.mduw3x6.mongodb.net
+2026-01-31 13:21:53 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/blogs","status":200,"responseTime":"179ms","ip":"::1","userAgent":"curl/8.7.1"}
+2026-01-31 13:21:53 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/categories","status":200,"responseTime":"41ms","ip":"::1","userAgent":"curl/8.7.1"}
+2026-01-31 13:21:53 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/banner-1","status":200,"responseTime":"37ms","ip":"::1","userAgent":"curl/8.7.1"}
+2026-01-31 13:21:57 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/user/me","status":304,"responseTime":"74ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:21:57 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/site-config","status":304,"responseTime":"40ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:22:00 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/banner-1","status":304,"responseTime":"43ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:22:00 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/banner-1","status":304,"responseTime":"38ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:22:05 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/reviews","status":200,"responseTime":"40ms","ip":"::1","userAgent":"curl/8.7.1"}
+2026-01-31 13:58:38 [[31MERROR[39M]: 401 - Your session has expired. Please log in again. {"method":"GET","path":"/api/user/me","ip":"::1"}
+Error: Your session has expired. Please log in again.
+    at verifyToken (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/auth.js:36:29)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at router.handle (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:186:3)
+    at router (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:60:12)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+2026-01-31 13:58:38 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/user/me","status":401,"responseTime":"41ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:38 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/banner-1","status":304,"responseTime":"54ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:38 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/site-config","status":304,"responseTime":"52ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:41 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/site-config","status":304,"responseTime":"49ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:41 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/app-config","status":304,"responseTime":"50ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:41 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/site-config","status":304,"responseTime":"91ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:41 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/app-config","status":304,"responseTime":"47ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:42 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/banner-1","status":304,"responseTime":"56ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:42 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/banner-1","status":304,"responseTime":"43ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:43 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/blogs","status":200,"responseTime":"166ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:43 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/blogs","status":304,"responseTime":"81ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:44 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/categories","status":200,"responseTime":"46ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:44 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/categories","status":304,"responseTime":"45ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:48 [[31MERROR[39M]: 401 - Your session has expired. Please log in again. {"method":"GET","path":"/api/v1/mantras","ip":"::1"}
+Error: Your session has expired. Please log in again.
+    at verifyToken (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/auth.js:36:29)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:295:15
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at router.handle (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:186:3)
+2026-01-31 13:58:48 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/v1/mantras","status":401,"responseTime":"2ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:48 [[31MERROR[39M]: 401 - Your session has expired. Please log in again. {"method":"GET","path":"/api/v1/mantras","ip":"::1"}
+Error: Your session has expired. Please log in again.
+    at verifyToken (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/auth.js:36:29)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/route.js:117:3)
+    at handle (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:295:15
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at router.handle (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:186:3)
+2026-01-31 13:58:48 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/v1/mantras","status":401,"responseTime":"1ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:58:57 [[33MWARN[39M]: Auth: Login failed - wrong password {"userId":"696f2e52b34594e03ac4eeba","ip":"::1","success":false}
+2026-01-31 13:58:57 [[31MERROR[39M]: 401 - Invalid email or password {"method":"POST","path":"/api/v1/auth/login","ip":"::1"}
+Error: Invalid email or password
+    at exports.login (/Users/saisudhakarmanchala/projects/bookmyseva/server/controllers/authController.js:34:25)
+2026-01-31 13:58:57 [[33MWARN[39M]: HTTP Request {"method":"POST","url":"/api/v1/auth/login","status":401,"responseTime":"343ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:07 [[32MINFO[39M]: Auth: Login successful {"userId":"696f2e52b34594e03ac4eeba","ip":"::1","success":true}
+2026-01-31 13:59:07 [[32MINFO[39M]: HTTP Request {"method":"POST","url":"/api/v1/auth/login","status":200,"responseTime":"406ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:07 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/user/me","status":200,"responseTime":"96ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:07 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/site-config","status":304,"responseTime":"42ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:07 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/site-config","status":304,"responseTime":"39ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:07 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/user/me","status":304,"responseTime":"89ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:12 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/banner-1","status":304,"responseTime":"49ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:12 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/banner-1","status":304,"responseTime":"45ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:15 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/blogs","status":304,"responseTime":"138ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:15 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/blogs","status":304,"responseTime":"50ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:17 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/categories","status":304,"responseTime":"52ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:17 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/categories","status":304,"responseTime":"47ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:19 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/mantras","status":304,"responseTime":"107ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:19 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/mantras","status":304,"responseTime":"87ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:20 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/festival","status":304,"responseTime":"51ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:20 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/festival","status":304,"responseTime":"45ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:21 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/panchangam?date=2026-01-31","status":304,"responseTime":"50ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:21 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/panchangam?date=2026-01-31","status":304,"responseTime":"59ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:22 [[31MERROR[39M]: 404 - Cannot find /api/reviews/all on this server {"method":"GET","path":"/api/reviews/all","ip":"::1","userId":"696f2e52b34594e03ac4eeba"}
+Error: Cannot find /api/reviews/all on this server
+    at notFound (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/errorHandler.js:132:10)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:147:12)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+2026-01-31 13:59:22 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/reviews/all","status":404,"responseTime":"52ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:22 [[31MERROR[39M]: 404 - Cannot find /api/reviews/all on this server {"method":"GET","path":"/api/reviews/all","ip":"::1","userId":"696f2e52b34594e03ac4eeba"}
+Error: Cannot find /api/reviews/all on this server
+    at notFound (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/errorHandler.js:132:10)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:147:12)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+2026-01-31 13:59:22 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/reviews/all","status":404,"responseTime":"44ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:25 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/gita-sloka?type=gita","status":304,"responseTime":"48ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:25 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/gita-sloka?type=gita","status":304,"responseTime":"43ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:26 [[31MERROR[39M]: 404 - Cannot find /api/storage/analytics on this server {"method":"GET","path":"/api/storage/analytics","ip":"::1","userId":"696f2e52b34594e03ac4eeba"}
+Error: Cannot find /api/storage/analytics on this server
+    at notFound (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/errorHandler.js:132:10)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:147:12)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+2026-01-31 13:59:26 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/storage/analytics","status":404,"responseTime":"113ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:26 [[31MERROR[39M]: 404 - Cannot find /api/storage/analytics on this server {"method":"GET","path":"/api/storage/analytics","ip":"::1","userId":"696f2e52b34594e03ac4eeba"}
+Error: Cannot find /api/storage/analytics on this server
+    at notFound (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/errorHandler.js:132:10)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:147:12)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+2026-01-31 13:59:26 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/storage/analytics","status":404,"responseTime":"92ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:28 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/storage/files","status":304,"responseTime":"2161ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:29 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/storage/files","status":304,"responseTime":"606ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:30 [[31MERROR[39M]: 401 - Access denied. No token provided. {"method":"GET","path":"/api/socket.io/?EIO=4&transport=polling&t=1wkn0r79","ip":"::1"}
+Error: Access denied. No token provided.
+    at verifyToken (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/auth.js:19:25)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at router.handle (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:186:3)
+    at router (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:60:12)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+2026-01-31 13:59:30 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/socket.io/?EIO=4&transport=polling&t=1wkn0r79","status":401,"responseTime":"1ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:30 [[31MERROR[39M]: 401 - Access denied. No token provided. {"method":"GET","path":"/api/socket.io/?EIO=4&transport=polling&t=1wkn2dv1","ip":"::1"}
+Error: Access denied. No token provided.
+    at verifyToken (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/auth.js:19:25)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at router.handle (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:186:3)
+    at router (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:60:12)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+2026-01-31 13:59:30 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/socket.io/?EIO=4&transport=polling&t=1wkn2dv1","status":401,"responseTime":"5ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:31 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/chat/sessions","status":304,"responseTime":"90ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:31 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/chat/sessions","status":304,"responseTime":"91ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:39 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/user/me","status":304,"responseTime":"98ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:39 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/site-config","status":304,"responseTime":"44ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:45 [[31MERROR[39M]: 404 - Cannot find /api/reviews/all on this server {"method":"GET","path":"/api/reviews/all","ip":"::1","userId":"696f2e52b34594e03ac4eeba"}
+Error: Cannot find /api/reviews/all on this server
+    at notFound (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/errorHandler.js:132:10)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:147:12)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+2026-01-31 13:59:45 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/reviews/all","status":404,"responseTime":"52ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:45 [[31MERROR[39M]: 404 - Cannot find /api/reviews/all on this server {"method":"GET","path":"/api/reviews/all","ip":"::1","userId":"696f2e52b34594e03ac4eeba"}
+Error: Cannot find /api/reviews/all on this server
+    at notFound (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/errorHandler.js:132:10)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:147:12)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+2026-01-31 13:59:45 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/reviews/all","status":404,"responseTime":"42ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:53 [[31MERROR[39M]: 404 - Cannot find /api/reviews/all on this server {"method":"GET","path":"/api/reviews/all","ip":"::1","userId":"696f2e52b34594e03ac4eeba"}
+Error: Cannot find /api/reviews/all on this server
+    at notFound (/Users/saisudhakarmanchala/projects/bookmyseva/server/middleware/errorHandler.js:132:10)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+    at next (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:291:5)
+    at Layer.handleRequest (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/lib/layer.js:147:12)
+    at trimPrefix (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:342:13)
+    at /Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:297:9
+    at processParams (/Users/saisudhakarmanchala/projects/bookmyseva/server/node_modules/router/index.js:582:12)
+2026-01-31 13:59:53 [[33MWARN[39M]: HTTP Request {"method":"GET","url":"/api/reviews/all","status":404,"responseTime":"62ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 13:59:58 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/v1/content/site-config","status":304,"responseTime":"47ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"}
+2026-01-31 13:59:58 [[32MINFO[39M]: HTTP Request {"method":"GET","url":"/api/user/me","status":304,"responseTime":"78ms","ip":"::1","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36","userId":"696f2e52b34594e03ac4eeba"}
+2026-01-31 14:02:36 [[32MINFO[39M]: SIGTERM received. Shutting down gracefully...
+2026-01-31 14:02:36 [[32MINFO[39M]: HTTP server closed
+2026-01-31 14:02:36 [[33MWARN[39M]: MongoDB disconnected. Attempting to reconnect...
+2026-01-31 14:02:36 [[32MINFO[39M]: MongoDB connection closed
