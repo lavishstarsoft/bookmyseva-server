@@ -10,6 +10,10 @@ const chatSessionSchema = new mongoose.Schema({
         phone: String,
         email: String
     },
+    guestId: {
+        type: String,
+        index: true
+    },
     socketId: {
         type: String,
         required: true

@@ -43,7 +43,9 @@ const corsOptions = {
             'http://localhost:3001',
             'http://localhost:5173',
             'http://localhost:8080',
-            'http://localhost:8081'
+            'http://localhost:8081',
+            'https://www.bookmyseva.com',
+            'https://bookmyseva.com',
         ].filter(Boolean);
 
         if (allowedOrigins.includes(origin) || process.env.NODE_ENV === 'development') {
@@ -205,7 +207,7 @@ app.use(`${API_V1}`, cmsRoutes); // Mount CMS routes directly for /blogs, /categ
 app.use('/api', authRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/riders', riderRoutes);
-app.use('/api', uploadRoutes);
+app.use('/api/upload', uploadRoutes);
 app.use('/api', cmsRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/reviews', reviewRoutes);

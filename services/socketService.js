@@ -125,18 +125,28 @@ exports.initSocket = (server) => {
                 const { message, userId, guestId } = data;
 
                 // 1. Find or Create Session
-                let query = null;
-                if (userId) query = { userId };
-                else if (guestId) query = { guestId };
-                else query = { socketId: socket.id };
+                const searchGuestId = guestId || socket.guestId;
+                const searchUserId = userId || socket.userId;
+
+                console.log('Sending message. Search UserID:', searchUserId, 'Search GuestID:', searchGuestId);
+
+                let query = {};
+                if (searchUserId) {
+                    query = { userId: searchUserId };
+                } else if (searchGuestId) {
+                    query = { guestId: searchGuestId };
+                } else {
+                    query = { socketId: socket.id };
+                }
 
                 let session = await ChatSession.findOne(query);
 
                 // Lazy Create if first message
                 if (!session) {
+                    console.log('Session not found, creating new session. Query:', query);
                     session = new ChatSession({
-                        userId: userId || null,
-                        guestId: guestId || socket.guestId,
+                        userId: searchUserId || null,
+                        guestId: searchGuestId, // Prefer the one from message, then socket
                         guestDetails: socket.guestDetails || {},
                         socketId: socket.id,
                         isActive: true,
@@ -150,6 +160,14 @@ exports.initSocket = (server) => {
                     const roomName = session.guestId || session.userId || session._id.toString();
                     socket.join(roomName);
                     socket.join(session._id.toString());
+                } else {
+                    // Update socket ID if changed (e.g. reconnection)
+                    if (session.socketId !== socket.id) {
+                        session.socketId = socket.id;
+                        const roomName = session.guestId || session.userId || session._id.toString();
+                        socket.join(roomName);
+                        socket.join(session._id.toString());
+                    }
                 }
 
                 // 2. Save User Message
