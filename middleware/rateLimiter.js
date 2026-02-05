@@ -18,7 +18,7 @@ const getStore = () => {
  */
 const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // Limit each IP to 100 requests per windowMs
+    max: 5000, // Increased from 1000 to 5000 to prevent 429 errors
     message: {
         success: false,
         message: 'Too many requests from this IP, please try again after 15 minutes'
@@ -26,6 +26,7 @@ const apiLimiter = rateLimit({
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
     handler: (req, res, next, options) => {
+        logger.warn(`Rate limit exceeded for IP: ${req.ip}`);
         res.status(429).json(options.message);
     },
     skip: (req) => {
@@ -41,7 +42,7 @@ const apiLimiter = rateLimit({
  */
 const authLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 5, // Limit each IP to 5 login attempts per windowMs
+    max: 20, // Increased from 5 to 20 to allow for retries
     message: {
         success: false,
         message: 'Too many login attempts, please try again after 15 minutes'
@@ -60,7 +61,7 @@ const authLimiter = rateLimit({
  */
 const passwordResetLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour
-    max: 3, // Limit each IP to 3 password reset requests per hour
+    max: 10, // Increased from 3 to 10
     message: {
         success: false,
         message: 'Too many password reset attempts, please try again after an hour'
@@ -76,7 +77,7 @@ const passwordResetLimiter = rateLimit({
  */
 const uploadLimiter = rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour
-    max: 20, // Limit each IP to 20 uploads per hour
+    max: 500, // Increased from 200 to 500
     message: {
         success: false,
         message: 'Upload limit exceeded, please try again later'
@@ -92,7 +93,7 @@ const uploadLimiter = rateLimit({
  */
 const chatLimiter = rateLimit({
     windowMs: 60 * 1000, // 1 minute
-    max: 60, // 60 messages per minute
+    max: 300, // Increased from 60 to 300
     message: {
         success: false,
         message: 'Too many messages, please slow down'
@@ -108,7 +109,7 @@ const chatLimiter = rateLimit({
  */
 const adminLimiter = rateLimit({
     windowMs: 60 * 1000, // 1 minute
-    max: 50, // 50 admin operations per minute
+    max: 200, // Increased from 50 to 200
     message: {
         success: false,
         message: 'Rate limit exceeded for admin operations'
@@ -124,7 +125,7 @@ const adminLimiter = rateLimit({
  */
 const speedLimiter = slowDown({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    delayAfter: 50, // Allow 50 requests per 15 minutes at full speed
+    delayAfter: 5000, // Increased from 1000 to 5000
     delayMs: (hits) => hits * 100, // Add 100ms delay per request above threshold
     maxDelayMs: 5000, // Max delay of 5 seconds
     skip: (req) => {
