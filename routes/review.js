@@ -23,12 +23,61 @@ router.get('/', async (req, res) => {
 });
 
 // Get all reviews for admin (alias route)
+// Get all reviews for admin (alias route) with pagination and filtering
 router.get('/all', async (req, res) => {
     try {
-        const reviews = await Review.find()
-            .sort({ createdAt: -1 });
+        const { page = 1, limit = 10, search, status } = req.query;
+        const query = {};
 
-        res.json(reviews);
+        if (status && status !== 'all') {
+            if (status === 'featured') {
+                query.featured = true;
+            } else {
+                query.status = status;
+            }
+        }
+
+        if (search) {
+            const searchRegex = { $regex: search, $options: 'i' };
+            query.$or = [
+                { name: searchRegex },
+                { email: searchRegex },
+                { comment: searchRegex },
+                { service: searchRegex },
+                { city: searchRegex }
+            ];
+        }
+
+        const skip = (parseInt(page) - 1) * parseInt(limit);
+
+        const [reviews, total, pendingCount, featuredCount, approvedCount, avgStats] = await Promise.all([
+            Review.find(query)
+                .sort({ createdAt: -1 })
+                .skip(skip)
+                .limit(parseInt(limit)),
+            Review.countDocuments(query),
+            Review.countDocuments({ status: 'pending' }),
+            Review.countDocuments({ featured: true }),
+            Review.countDocuments({ status: 'approved' }),
+            Review.aggregate([{ $group: { _id: null, avg: { $avg: "$rating" } } }])
+        ]);
+
+        res.json({
+            reviews,
+            pagination: {
+                total,
+                page: parseInt(page),
+                limit: parseInt(limit),
+                pages: Math.ceil(total / parseInt(limit))
+            },
+            stats: {
+                total: await Review.countDocuments(), // Total reviews count
+                pending: pendingCount,
+                featured: featuredCount,
+                approved: approvedCount,
+                averageRating: avgStats[0]?.avg ? parseFloat(avgStats[0].avg.toFixed(1)) : 0
+            }
+        });
     } catch (error) {
         res.status(500).json({ message: 'Error fetching reviews', error: error.message });
     }
@@ -37,13 +86,14 @@ router.get('/all', async (req, res) => {
 // Create a review
 router.post('/', async (req, res) => {
     try {
-        const { name, email, rating, comment, city } = req.body;
+        const { name, email, rating, comment, city, service } = req.body;
         const newReview = new Review({
             name,
             email,
             rating,
             comment,
             city,
+            service, // Added service field
             status: 'pending' // Default to pending
         });
         await newReview.save();
@@ -69,6 +119,35 @@ router.put('/:id', async (req, res) => {
         res.json(updatedReview);
     } catch (error) {
         res.status(500).json({ message: 'Error updating review', error: error.message });
+    }
+});
+
+// PATCH route for specific feature toggles (used by Superadmin)
+router.patch('/:id/feature', async (req, res) => {
+    try {
+        const { approved, featured } = req.body;
+        const updateData = {};
+
+        if (approved !== undefined) {
+            updateData.status = approved ? 'approved' : 'pending';
+        }
+        if (featured !== undefined) {
+            updateData.featured = featured;
+        }
+
+        const updatedReview = await Review.findByIdAndUpdate(
+            req.params.id,
+            updateData,
+            { new: true }
+        );
+
+        if (!updatedReview) {
+            return res.status(404).json({ message: 'Review not found' });
+        }
+
+        res.json(updatedReview);
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating review feature', error: error.message });
     }
 });
 

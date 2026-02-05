@@ -41,4 +41,11 @@ const productSchema = new mongoose.Schema({
     }
 }, { collection: 'products' });
 
+// Indexes for performance
+productSchema.index({ category: 1 });
+productSchema.index({ inStock: 1 });
+productSchema.index({ isFeatured: 1 });
+productSchema.index({ price: 1 });
+productSchema.index({ createdAt: -1 });
+
 module.exports = mongoose.model('Product', productSchema);

@@ -9,16 +9,16 @@ const { uploadLimiter } = require('../middleware/rateLimiter');
 router.use(verifyToken);
 router.use(uploadLimiter);
 
-// Image upload with validation
-router.post('/upload',
+// Image upload with validation (POST /api/v1/upload)
+router.post('/',
     uploadImage.single('image'),
     handleMulterError,
     validateUpload,
     uploadController.uploadImage
 );
 
-// General file upload with validation
-router.post('/upload-file',
+// General file upload with validation (POST /api/v1/upload/file)
+router.post('/file',
     uploadFile.single('file'),
     handleMulterError,
     validateUpload,

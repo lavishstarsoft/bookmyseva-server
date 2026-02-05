@@ -45,4 +45,7 @@ const panchangamSchema = new mongoose.Schema({
     }
 }, { collection: 'panchangam' });
 
+// Indexes for performance
+panchangamSchema.index({ date: -1 });
+
 module.exports = mongoose.model('Panchangam', panchangamSchema);

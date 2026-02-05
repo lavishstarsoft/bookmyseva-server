@@ -71,6 +71,15 @@ router.get('/daily-mantra', catchAsync(async (req, res) => {
     res.json(mantra || { message: 'No active mantra found' });
 }));
 
+// Get all active mantras list (Public)
+router.get('/mantras/list', catchAsync(async (req, res) => {
+    const mantras = await Mantra.find({ isActive: true })
+        .sort({ order: 1 })
+        .lean();
+    res.json(mantras || []);
+}));
+
+
 // Get all mantras (Admin)
 router.get('/mantras', verifyToken, verifyAdmin, catchAsync(async (req, res) => {
     const mantras = await Mantra.find()
@@ -115,21 +124,21 @@ router.delete('/mantras/:id', verifyToken, verifyAdmin, adminLimiter, catchAsync
 // Get Panchangam by date (Public)
 router.get('/panchangam', catchAsync(async (req, res) => {
     const { date } = req.query;
-    
+
     // Parse date - if not provided, use today
     const targetDate = date ? new Date(date) : new Date();
-    
+
     // Set to start of day for comparison
     const startOfDay = new Date(targetDate);
     startOfDay.setHours(0, 0, 0, 0);
-    
+
     const endOfDay = new Date(targetDate);
     endOfDay.setHours(23, 59, 59, 999);
-    
+
     const panchangam = await Panchangam.findOne({
         date: { $gte: startOfDay, $lte: endOfDay }
     }).lean();
-    
+
     res.json(panchangam || { message: 'No panchangam data for this date' });
 }));
 
@@ -137,36 +146,36 @@ router.get('/panchangam', catchAsync(async (req, res) => {
 router.get('/panchangam/all', verifyToken, verifyAdmin, catchAsync(async (req, res) => {
     const { startDate, endDate, limit = 30 } = req.query;
     const query = {};
-    
+
     if (startDate && endDate) {
         query.date = {
             $gte: new Date(startDate),
             $lte: new Date(endDate)
         };
     }
-    
+
     const panchangams = await Panchangam.find(query)
         .sort({ date: -1 })
         .limit(parseInt(limit))
         .lean();
-    
+
     res.json(panchangams || []);
 }));
 
 // Create or Update Panchangam (Admin) - Upsert by date
 router.post('/panchangam', verifyToken, verifyAdmin, adminLimiter, catchAsync(async (req, res) => {
     const { date, ...data } = req.body;
-    
+
     // Set to start of day for consistent storage
     const targetDate = new Date(date);
     targetDate.setHours(0, 0, 0, 0);
-    
+
     const panchangam = await Panchangam.findOneAndUpdate(
         { date: targetDate },
         { ...data, date: targetDate, updatedAt: Date.now() },
         { new: true, upsert: true }
     );
-    
+
     res.json(panchangam);
 }));
 

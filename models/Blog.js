@@ -43,4 +43,9 @@ blogSchema.pre('save', async function () {
     }
 });
 
+// Indexes for performance
+blogSchema.index({ status: 1 });
+blogSchema.index({ category: 1 });
+blogSchema.index({ publishedAt: -1 });
+
 module.exports = mongoose.model('Blog', blogSchema);

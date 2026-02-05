@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const EnquirySchema = new mongoose.Schema({
+    type: { type: String, enum: ['festival', 'panchangam'], default: 'festival' }, // Type to differentiate enquiries
     festivalId: { type: String, required: true },
     festivalName: { type: String, required: true },
     userDetails: {
@@ -14,5 +15,12 @@ const EnquirySchema = new mongoose.Schema({
     contactedAt: { type: Date }, // Timestamp when marked as contacted
     createdAt: { type: Date, default: Date.now }
 });
+
+// Indexes for performance
+EnquirySchema.index({ status: 1 });
+EnquirySchema.index({ type: 1 });
+EnquirySchema.index({ createdAt: -1 });
+EnquirySchema.index({ "userDetails.email": 1 });
+EnquirySchema.index({ "userDetails.phone": 1 });
 
 module.exports = mongoose.model('Enquiry', EnquirySchema);
