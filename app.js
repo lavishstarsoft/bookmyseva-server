@@ -195,6 +195,15 @@ app.use(`${API_V1}/chat`, chatRoutes);
 app.use(`${API_V1}/reviews`, reviewRoutes);
 app.use(`${API_V1}/storage`, storageRoutes);
 app.use(`${API_V1}/enquiries`, enquiryRoutes);
+
+// Customer Auth Routes (OTP) - Mount before generic routes
+app.use(`${API_V1}/customer-auth`, (req, res, next) => {
+    console.log(`[DEBUG_ROUTE] Hit ${req.originalUrl} with method ${req.method}`);
+    next();
+});
+const customerAuthRoutes = require('./routes/customerAuthRoutes');
+app.use(`${API_V1}/customer-auth`, customerAuthRoutes);
+
 // Spiritual routes BEFORE cms routes (more specific paths first)
 app.use(`${API_V1}`, spiritualRoutes);  // Gita, Mantras, Panchangam
 app.use(`${API_V1}/content`, spiritualRoutes);  // Alternate paths for content/* routes

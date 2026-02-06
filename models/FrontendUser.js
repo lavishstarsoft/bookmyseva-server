@@ -26,6 +26,15 @@ const frontendUserSchema = new mongoose.Schema({
     authProviderId: {
         type: String
     },
+    // OTP Local Verification
+    otp: {
+        type: String,
+        select: false // Do not return by default
+    },
+    otpExpires: {
+        type: Date,
+        select: false
+    },
     status: {
         type: String,
         default: 'Active'
